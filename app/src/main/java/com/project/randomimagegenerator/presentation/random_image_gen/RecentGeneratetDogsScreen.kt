@@ -1,11 +1,13 @@
 package com.project.randomimagegenerator.presentation.random_image_gen
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
@@ -56,7 +58,16 @@ fun RecentGeneratedDogsScreen() {
                     contentDescription = "Loaded Image",
                     contentScale = ContentScale.Crop,
                     loading = {
-                        CircularProgressIndicator(modifier = Modifier.fillMaxWidth())
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            CircularProgressIndicator(
+                                modifier = Modifier
+                                    .size(30.dp)
+                                    .align(Alignment.Center)
+                            )
+                        }
                     },
                 )
             }
